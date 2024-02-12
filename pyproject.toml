@@ -1,0 +1,26 @@
+[project]
+name = "chatgpt-to-sqlite"
+version = "0.1.0"
+description = "Import ChatGPT conversations into a SQLite database"
+readme = "README.md"
+authors = [{name = "Scott Carvalho"}]
+license = {text = "Apache-2.0"}
+requires-python = ">=3.8"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License"
+]
+dependencies = [
+    "click"
+]
+
+[project.urls]
+Homepage = "https://github.com/Scarvy/chatgpt-to-sqlite"
+Changelog = "https://github.com/Scarvy/chatgpt-to-sqlite/releases"
+Issues = "https://github.com/Scarvy/chatgpt-to-sqlite/issues"
+CI = "https://github.com/Scarvy/chatgpt-to-sqlite/actions"
+
+[project.entry-points.console_scripts]
+chatgpt-to-sqlite = "chatgpt_to_sqlite.cli:cli"
+
+[project.optional-dependencies]
+test = ["pytest"]
