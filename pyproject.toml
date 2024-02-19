@@ -10,7 +10,9 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License"
 ]
 dependencies = [
-    "click"
+    "click",
+    "sqlite-utils",
+    "funcy",
 ]
 
 [project.urls]
@@ -23,4 +25,4 @@ CI = "https://github.com/Scarvy/chatgpt-to-sqlite/actions"
 chatgpt-to-sqlite = "chatgpt_to_sqlite.cli:cli"
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "ruff"]
