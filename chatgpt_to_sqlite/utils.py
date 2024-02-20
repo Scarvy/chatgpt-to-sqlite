@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 from typing import Optional
 
 
-def convert_timestamps(timestamp: float | None) -> datetime | None:
+def convert_timestamp(timestamp: float | None) -> datetime | None:
     if not timestamp:
         return None
     return datetime.fromtimestamp(timestamp, tz=UTC)
@@ -34,7 +34,7 @@ def concatenate_rows(message: dict, chat_id: str) -> Optional[dict]:
         return {
             "message_id": message["id"],
             "sender": "system",
-            "create_time": convert_timestamps(message["create_time"]),
+            "create_time": convert_timestamp(message["create_time"]),
             "status": message["status"],
             "weight": message["weight"],
             "text": total_system_message,
@@ -53,7 +53,7 @@ def concatenate_rows(message: dict, chat_id: str) -> Optional[dict]:
     return {
         "message_id": message["id"],
         "sender": sender,
-        "create_time": convert_timestamps(message["create_time"]),
+        "create_time": convert_timestamp(message["create_time"]),
         "status": message["status"],
         "weight": message["weight"],
         "text": text,
@@ -75,8 +75,8 @@ def load_documents(data: dict) -> list[list[dict]]:
         document = {
             "chat_id": d["id"],
             "title": d["title"],
-            "create_time": convert_timestamps(d["create_time"]),
-            "update_time": convert_timestamps(d["update_time"]),
+            "create_time": convert_timestamp(d["create_time"]),
+            "update_time": convert_timestamp(d["update_time"]),
             "messages": messages,
         }
         documents.append(document)
