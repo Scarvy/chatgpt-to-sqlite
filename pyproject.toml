@@ -5,7 +5,7 @@ description = "Import ChatGPT conversations into a SQLite database"
 readme = "README.md"
 authors = [{name = "Scott Carvalho"}]
 license = {text = "Apache-2.0"}
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
     "License :: OSI Approved :: Apache Software License"
 ]
