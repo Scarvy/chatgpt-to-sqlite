@@ -1,11 +1,11 @@
-from datetime import datetime
+from datetime import UTC, datetime
 from typing import Optional
 
 
 def convert_timestamps(timestamp: float | None) -> datetime | None:
     if not timestamp:
         return None
-    return datetime.fromtimestamp(timestamp)
+    return datetime.fromtimestamp(timestamp, tz=UTC)
 
 
 # source https://github.com/duarteocarmo/mistral-doc/blob/1f909bb4e23c4ae487890072192722c2e86da1f3/process_gpt_export.py#L16
