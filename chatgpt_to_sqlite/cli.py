@@ -55,5 +55,5 @@ def export(filename, db_path, num):
 
     # Build messages tables
     messages_table = db.table("messages")
-    messages_table.upsert_all(messages, pk="message_id")
+    messages_table.upsert_all(all_messages, pk="message_id")
     messages_table.add_foreign_key("chat_id", "conversations", "chat_id", ignore=True)
