@@ -1,6 +1,6 @@
 [project]
 name = "chatgpt-to-sqlite"
-version = "0.1.0"
+version = "1.0.0"
 description = "Import ChatGPT conversations into a SQLite database"
 readme = "README.md"
 authors = [{name = "Scott Carvalho"}]
