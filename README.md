@@ -9,9 +9,13 @@ Import ChatGPT conversations into a SQLite database
 
 ## Installation
 
-Install this tool using `pip`:
+The easiest way to use this tool is to install it using `uv`:
 
-    pip install chatgpt-to-sqlite
+    uvx chatgpt-to-sqlite conversations.json chat.db
+
+Or, you can install it as a tool:
+
+    uv tool install chatgpt-to-sqlite
 
 ## Usage
 
@@ -27,11 +31,11 @@ For help, run:
 
 You can also use:
 
-    python -m chatgpt_to_sqlite --help
+    chatgpt_to_sqlite --help
 
 Export ChatGPT data into a SQLite Data:
 
-    chatgpt-to-sqlite path/to/chatGPT_conversations.json chatgpt.db
+    chatgpt-to-sqlite path/to/chatGPT_conversations.json chat.db
 
 **Database Schema:**
 
@@ -57,12 +61,7 @@ Export ChatGPT data into a SQLite Data:
 To contribute to this tool, first checkout the code. Then create a new virtual environment:
 
     cd chatgpt-to-sqlite
-    python -m venv venv
-    source venv/bin/activate
-
-Now install the dependencies and test dependencies:
-
-    pip install -e '.[test]'
+    uv sync --dev
 
 To run the tests:
 

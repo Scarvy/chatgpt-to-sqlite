@@ -21,8 +21,12 @@ Changelog = "https://github.com/Scarvy/chatgpt-to-sqlite/releases"
 Issues = "https://github.com/Scarvy/chatgpt-to-sqlite/issues"
 CI = "https://github.com/Scarvy/chatgpt-to-sqlite/actions"
 
-[project.entry-points.console_scripts]
+[project.scripts]
 chatgpt-to-sqlite = "chatgpt_to_sqlite.cli:cli"
 
-[project.optional-dependencies]
-test = ["pytest", "ruff"]
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+[build-system]
+requires = ["uv_build>=0.8.14,<0.9.0"]
+build-backend = "uv_build"
