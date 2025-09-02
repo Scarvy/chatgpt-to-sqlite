@@ -2,7 +2,6 @@
 
 [![PyPI](https://img.shields.io/pypi/v/chatgpt-to-sqlite.svg)](https://pypi.org/project/chatgpt-to-sqlite/)
 [![Changelog](https://img.shields.io/github/v/release/Scarvy/chatgpt-to-sqlite?include_prereleases&label=changelog)](https://github.com/Scarvy/chatgpt-to-sqlite/releases)
-[![Tests](https://github.com/Scarvy/chatgpt-to-sqlite/actions/workflows/test.yml/badge.svg)](https://github.com/Scarvy/chatgpt-to-sqlite/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/Scarvy/chatgpt-to-sqlite/blob/master/LICENSE)
 
 Import ChatGPT conversations into a SQLite database
