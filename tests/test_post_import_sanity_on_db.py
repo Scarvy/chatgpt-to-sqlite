@@ -7,8 +7,8 @@ import pytest
 
 
 @pytest.fixture
-def get_most_active_conversation_with_messages(db_path="chatgpt.db", message_limit=10):
-    conn = sqlite3.connect(db_path)
+def get_most_active_conversation_with_messages(chatgpt_db, message_limit=10):
+    conn = sqlite3.connect(chatgpt_db)
     cursor = conn.cursor()
 
     # Get the chat_id of the conversation with most messages
@@ -83,9 +83,8 @@ def test_preview_documents(get_most_active_conversation_with_messages):
         print(f"[{sender.upper()}]: {text}\n")
 
 
-def test_sanity_check_db():
-    db_path = "chatgpt.db"
-    conn = sqlite3.connect(db_path)
+def test_sanity_check_db(chatgpt_db):
+    conn = sqlite3.connect(chatgpt_db)
     cursor = conn.cursor()
 
     cursor.execute("SELECT COUNT(*) FROM conversations")
@@ -93,37 +92,6 @@ def test_sanity_check_db():
     print(f"🗂️  Total conversations: {conv_count}")
 
     cursor.execute("SELECT COUNT(*) FROM messages")
-    msg_count = cursor.fetchone()[0]
-    print(f"💬 Total messages: {msg_count}")
-
-    cursor.execute(
-        """
-        SELECT c.title, c.chat_id, COUNT(m.message_id) as message_count
-        FROM conversations c
-        LEFT JOIN messages m ON c.chat_id = m.chat_id
-        GROUP BY c.chat_id
-        ORDER BY message_count DESC
-        LIMIT 20
-    """
-    )
-    rows = cursor.fetchall()
-    print("\n📊 Top 20 conversations by message count:")
-    for title, chat_id, count in rows:
-        print(f"   - {title[:40]:40} | ID: {chat_id[:8]}... | {count} messages")
-
-    conn.close()
-
-
-def test_sanity_check_db():
-    db_path = "chatgpt.db"
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT COUNT(*) FROM conversations")
-    conv_count = cursor.fetchone()[0]
-    print(f"🗂️  Total conversations: {conv_count}")
-
-    cursor.execute("SELECT COUNT(*) FROM messages LIMIT(10)")
     msg_count = cursor.fetchone()[0]
     print(f"💬 Total messages: {msg_count}")
 
