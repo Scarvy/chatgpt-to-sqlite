@@ -180,3 +180,6 @@ pyrightconfig.json
 
 # VSCode
 .vscode
+
+# Shell env (secrets)
+.zshenv
